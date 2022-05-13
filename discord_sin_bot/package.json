@@ -1,0 +1,31 @@
+{
+  "name": "sinbot",
+  "version": "1.0.0",
+  "description": "Discord bot for sinners",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node ./src/app.ts",
+    "dev": "ts-node-dev ./src/app.ts"
+  },
+  "author": "Miciaha Ivey",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/opus": "^0.7.0",
+    "body-parser": "^1.20.0",
+    "discord.js": "^12.5.3",
+    "dotenv": "^8.6.0",
+    "express": "^4.17.1",
+    "ffmpeg-static": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.32",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "ts-jest": "^28.0.2",
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.4"
+  }
+}
