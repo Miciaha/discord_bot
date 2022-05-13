@@ -2,11 +2,11 @@
 Sinbot's original purpose was not to pass butter, but to track the misdeeds of those in our discord server. A sin is whatever the user's of the server deem appropriate. 
 
 ## Additional Features
--[] Quoting youtube clips in voice channels
+- [] Quoting youtube clips in voice channels
 
--[] Operating as an 8-ball
+- [] Operating as an 8-ball
 
--[] Custom user command requests - GitHub API
+- [] Custom user command requests - GitHub API
 
 ## Development
 
