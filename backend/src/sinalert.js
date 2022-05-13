@@ -35,7 +35,7 @@ module.exports = {
             }
             catch (e) {
 
-                console.log("User is already in the database, kewl. Increasing send counter and moving on");
+                console.log("User is already in the database, kewl. Increasing sin counter and moving on");
 
                 try {
 

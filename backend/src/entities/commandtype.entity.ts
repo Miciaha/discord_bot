@@ -9,7 +9,7 @@ export class CommandType extends BaseEntity {
     @Property()
     name: string;
 
-    @OneToMany(() => BotCommand, b => b.commandType, { cascade: [Cascade.ALL] })
+    @OneToMany(() => BotCommand, b => b.commandType, { cascade: [Cascade.ALL], nullable:true })
     commands? = new Collection<BotCommand>(this);
 
     constructor(name: string) {

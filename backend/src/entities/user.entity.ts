@@ -9,16 +9,15 @@ export class User extends BaseEntity {
     @Property()
     discordId: string;
 
-    @ManyToOne(() => DiscordServer)
-    discordServer: DiscordServer;
+    @ManyToOne(() => DiscordServer, { nullable: true })
+    discordServer!: DiscordServer;
 
     @Property()
     isAdmin: boolean;
 
-    constructor(id: string, server: DiscordServer, admin: boolean = false) {
+    constructor(id: string, admin: boolean = false) {
         super();
         this.discordId = id;
-        this.discordServer = server;
         this.isAdmin = admin;
     }
 

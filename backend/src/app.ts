@@ -1,10 +1,10 @@
 import http from 'http'
 import express from 'express';
 import * as bodyParser from 'body-parser';
+import config from './mikro-orm.config'
 require('dotenv').config();
 
 import { EntityManager, EntityRepository, MikroORM, RequestContext } from '@mikro-orm/core';
-import type { PostgreSqlDriver } from '@mikro-orm/postgresql';
 
 import { Controller } from './interfaces';
 import { BotCommand, DiscordServer, User, CommandType} from './entities';
@@ -35,13 +35,7 @@ export class App {
     }
 
     private async intializeDBConnection() {
-        DBInstance.orm = await MikroORM.init<PostgreSqlDriver>({
-            entities: ['./src/entities'],
-            dbName: process.env.DB_NAME,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            type: 'postgresql',
-        });
+        DBInstance.orm = await MikroORM.init(config);
         DBInstance.em = DBInstance.orm.em;
         DBInstance.botCommandDb = DBInstance.orm.em.getRepository(BotCommand);
         DBInstance.commandTypeDb = DBInstance.orm.em.getRepository(CommandType);

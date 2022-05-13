@@ -8,17 +8,21 @@ import { BaseEntity } from './base.entity';
 export class DiscordServer extends BaseEntity {
 
     @Property()
-    serverName: string;
+    serverId: string;
+
+    @ManyToOne(() => User)
+    serverOwner: User
 
     @OneToMany(() => User, u => u.discordServer, {cascade: [Cascade.ALL]})
     users: Collection<User> = new Collection<User>(this);
 
-    @OneToMany(() => BotCommand, b => b.discordServer, {cascade: [Cascade.ALL]})
+    @OneToMany(() => BotCommand, b => b.discordServer, {cascade: [Cascade.ALL]}, )
     serverCommands: Collection<BotCommand> = new Collection<BotCommand>(this);
 
-    constructor(name: string) {
+    constructor(id: string, owner: User) {
         super();
-        this.serverName = name;
+        this.serverId = id;
+        this.serverOwner = owner;
     }
 
 }

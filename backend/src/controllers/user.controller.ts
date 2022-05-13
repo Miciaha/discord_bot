@@ -26,6 +26,7 @@ export class UserController implements Controller {
     }
 
     addUser = (request: express.Request, response: express.Response) => {
+        
 
     }
 

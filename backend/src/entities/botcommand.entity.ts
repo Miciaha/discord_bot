@@ -16,10 +16,10 @@ export class BotCommand extends BaseEntity {
     @Property({nullable: true})
     aliases?: string[];
 
-    @ManyToOne(() => DiscordServer)
+    @ManyToOne(() => DiscordServer, {nullable: true})
     discordServer: DiscordServer;
 
-    @ManyToOne(() => CommandType)
+    @ManyToOne(() => CommandType, {nullable: true})
     commandType: CommandType;
 
     constructor(name: string, description: string, server: DiscordServer, type: CommandType) {
