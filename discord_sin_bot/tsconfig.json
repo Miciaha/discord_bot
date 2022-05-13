@@ -3,6 +3,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "outDir": "./dist",
+    "types": [ "node" ],
     "allowJs": true,
     "target": "es6"
   },

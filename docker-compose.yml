@@ -2,6 +2,7 @@ version: '3'
 
 services:
   postgres:
+    container_name: PostgreSQL
     image: postgres:14
     healthcheck:
       test: ["CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root"]
@@ -18,4 +19,18 @@ services:
     volumes:
       - ./db:/docker-entrypoint-initdb.d/
     ports:
-      - 5432:5432
+      - 8000:5432
+  discord_bot:
+    container_name: DiscordBot
+    volumes:
+      - ./discord_sin_bot:/app/
+    build: "./discord_sin_bot"
+    ports:
+      - "8001:8080"
+  express_server:
+    container_name: ExpressServer
+    volumes:
+      - ./backend:/app/
+    build: "./backend"
+    ports:
+      - "8002:3000"
