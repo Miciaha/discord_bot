@@ -1,5 +1,0 @@
-node_modules/
-config.json
-database.sqlite
-.env
-package-lock.json
