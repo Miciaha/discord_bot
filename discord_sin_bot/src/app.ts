@@ -8,7 +8,7 @@ import { handleMessage } from './utilities/message-handler';
 const client = new Client();
 const commands = new Collection<string,Command>();
 
-//Reads in commands in commands folder
+//Read in default commands
 const commandFiles = fs
   .readdirSync(__dirname+"/commands/default")
   .filter((file) => file.endsWith(".js"));
@@ -20,8 +20,6 @@ for (const file of commandFiles) {
 }
 
 client.once("ready", () => {
-  //db.sinners.sync();
-  //db.records.sync();
   console.log("Ready!");
 });
 
