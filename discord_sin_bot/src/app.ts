@@ -2,11 +2,11 @@ require('dotenv').config();
 import * as fs from 'fs';
 import {Client, Collection}  from 'discord.js';
 import { Command } from './commands/command';
-import { handleMessage } from './utilities/message-handler';
+import { getServerCommands, handleMessage } from './utilities/message-handler';
 
 //Connect to Discord Client
 const client = new Client();
-const commands = new Collection<string,Command>();
+export const commands = new Collection<string,Command>();
 
 //Reads in commands in commands folder
 const commandFiles = fs
@@ -20,8 +20,7 @@ for (const file of commandFiles) {
 }
 
 client.once("ready", () => {
-  //db.sinners.sync();
-  //db.records.sync();
+  getServerCommands();
   console.log("Ready!");
 });
 
