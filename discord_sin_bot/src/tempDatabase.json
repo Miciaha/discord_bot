@@ -1,0 +1,81 @@
+{
+  "commands": [
+    {
+      "name": "bonk",
+      "serverId": "WIP",
+      "type": "playAudio",
+      "usage": "join a voice channel and type in the command...",
+      "aliases": ["b"],
+      "description": "BONK BONK HORNY JAIL",
+      "fileLocation": "./resources/sounds/Bonk.mp3"
+    },
+    {
+      "name": "chillary",
+      "serverId": "WIP",
+      "type": "playAudio",
+      "usage": "join a voice channel and type in the command...",
+      "aliases": ["chillin"],
+      "description": "Our girl is so chill omfg!!",
+      "fileLocation": "./resources/sounds/chill.mp3"
+    },
+    {
+      "name": "jeb",
+      "serverId": "WIP",
+      "type": "playAudio",
+      "usage": "join a voice channel and type in the command...",
+      "aliases": ["clap"],
+      "description": "Poor Jeb",
+      "fileLocation": "./resources/sounds/clap.mp3"
+    },
+    {
+      "name": "meow",
+      "serverId": "WIP",
+      "type": "playAudio",
+      "usage": "join a voice channel and type in the command...",
+      "aliases": ["cat"],
+      "description": "Returns a line from the critically acclaimed movie Cats",
+      "fileLocation": "./resources/sounds/MEOW.mp3"
+    },
+    {
+      "name": "objection",
+      "serverId": "WIP",
+      "type": "playAudio",
+      "usage": "join a voice channel and type in the command...",
+      "aliases": ["objection"],
+      "description": "Returns the classic line from Phoenix Wright Ace Attorney",
+      "fileLocation": "./resources/sounds/Objection.mp3"
+    },
+    {
+      "name": "pokemongo",
+      "serverId": "WIP",
+      "type": "playAudio",
+      "usage": "join a voice channel and type in the command...",
+      "aliases": ["polls"],
+      "description": "HELLO FELLOW KIDS! CHILLARY HAS SOMETHING TO SAY!",
+      "fileLocation":"./resources/sounds/pokemongo.mp3"
+    },
+    {
+      "name": "miciaha",
+      "serverId": "WIP",
+      "type": "responseGenerator",
+      "usage": "",
+      "aliases": ["creator"],
+      "description": "Nerd?!",
+      "phrases": ["What a cool guy.","Probably testing something for you."]
+    }
+  ],
+
+  "users": [
+    {
+      "discordId": "WIP",
+      "discordServer": "WIP",
+      "isAdmin": "true"
+    }
+  ],
+
+  "discordServers": [
+    {
+      "serverId": "WIP"
+    }
+  ]
+}

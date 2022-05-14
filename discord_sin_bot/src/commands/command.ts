@@ -20,12 +20,11 @@ export abstract class Command {
 }
 
 export class PlayAudioCommand extends Command {
-    soundFile: File;
     fileLocation: string;
 
-    constructor(name: string, usage: string, aliases: string[], description: string, soundFile: File, hasArgs: boolean) {
+    constructor(name: string, usage: string, aliases: string[], description: string, soundFile: string, hasArgs: boolean) {
         super(name, usage, aliases, description, hasArgs = false)
-        this.soundFile = soundFile;
+        this.fileLocation = soundFile;
     }
 
     async execute(message: Message, args: string[]): Promise<Message> {
@@ -44,15 +43,6 @@ export class PlayAudioCommand extends Command {
             return message.reply("You need to join a voice channel first!");
         }
     }
-
-    private createTempSoundFile() {
-
-    }
-
-    private removeTempSoundFile() {
-
-    }
-
 }
 
 export class RandomResponseCommand extends Command {
