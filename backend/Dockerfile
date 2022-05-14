@@ -1,11 +1,11 @@
 FROM node:16
-WORKDIR /usr/src/app
+WORKDIR /src
 
-COPY package*.json ./
-RUN npm install
+COPY package*.json /src
+RUN npm install --silent
 
-COPY . .
+ADD . /src
 
-EXPOSE 8080
+RUN npm run build
 
-CMD ["npm", "run-script", "dev"]
+CMD ["npm", "start"]
