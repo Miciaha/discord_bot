@@ -20,17 +20,31 @@ services:
       - ./db:/docker-entrypoint-initdb.d/
     ports:
       - 8000:5432
-  discord_bot:
-    container_name: DiscordBot
-    volumes:
-      - ./discord_sin_bot:/app/
-    build: "./discord_sin_bot"
-    ports:
-      - "8001:8080"
+
   express_server:
     container_name: ExpressServer
     volumes:
-      - ./backend:/app/
+      - ./backend:/src/
+      - expressmodules:/src/node_modules
     build: "./backend"
+    command: npm run dev --verbose
     ports:
       - "8002:3000"
+    depends_on:
+      - postgres
+
+  discord_bot:
+    container_name: DiscordBot
+    volumes:
+      - ./discord_sin_bot:/src/
+      - botmodules:/src/node_modules
+    build: "./discord_sin_bot"
+    command: npm run dev --verbose
+    ports:
+      - "8001:8080"
+    depends_on:
+      - express_server
+
+volumes:
+  expressmodules: {}
+  botmodules: {}
