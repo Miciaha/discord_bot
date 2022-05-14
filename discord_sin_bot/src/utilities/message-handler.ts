@@ -1,5 +1,7 @@
-import {Message, Collection} from 'discord.js'
-import { Command } from '../commands/command';
+import {Message, Collection, Guild} from 'discord.js'
+import { commands } from '../app';
+import { Command, PlayAudioCommand, RandomResponseCommand } from '../commands/command';
+import * as data from '../tempDatabase.json';
 
 export function handleMessage(message: Message, commands: Collection<string, Command>) {
     if (!message.content.startsWith("$") || message.author.bot) return;
@@ -9,7 +11,11 @@ export function handleMessage(message: Message, commands: Collection<string, Com
     const commandName = split[0];
     const args = split.slice(1);
 
-    if (!commands.has(commandName)) return;
+    if (!commands.has(commandName)) {
+        return message.channel.send(
+            `That isn't a command in your server. Request it or make it, ${message.author}!`
+        );
+    }
 
     const command = commands.get(commandName);
 
@@ -26,4 +32,17 @@ export function handleMessage(message: Message, commands: Collection<string, Com
         message.reply("There was an error trying to execute that command.");
         message.author.id;
     }
+}
+
+export function getServerCommands() {
+    data.commands.forEach( x => {
+      var command;
+        if (x.type == "playAudio") {
+            command = new PlayAudioCommand(x.name, x.usage, x.aliases, x.description, x.fileLocation, false);
+        } else if (x.type == "responseGenerator"){
+            command = new RandomResponseCommand(x.name, x.usage, x.aliases, x.description, x.phrases, false);
+        }
+    
+        commands.set(command.name,command);
+    });    
 }

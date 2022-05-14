@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
     "emitDecoratorMetadata": true,
+    "types": [ "node" ],
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "experimentalDecorators": true,
     "outDir": "./dist",
-    "types": [ "node" ],
     "allowJs": true,
-    "target": "es6"
+    "target": "ESNEXT"
   },
-    "include": [
+  "include": [
         "./src/**/*"
-    ],
-    "exclude": [
-        "./node_modules"
-    ]
+  ],
 }
